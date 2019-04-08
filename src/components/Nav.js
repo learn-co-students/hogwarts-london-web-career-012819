@@ -1,7 +1,8 @@
 import piggy from '../porco.png'
 import React from 'react'
 
-const Nav = () => {
+const Nav = (props) => {
+	console.log(props)
 	return (
 		<div className="navWrapper">
 			<span className="headerText">Hogwarts</span>
@@ -11,6 +12,19 @@ const Nav = () => {
 				</a>
 			</div>
 			<span className="normalText">A React App for County Fair Hog Fans</span>
+				<div>
+					<label htmlFor="greased">Greased: </label>
+						<input
+								onChange={props.handleCheck}
+								checked={props.greased}
+								type="checkbox"
+								name="greased" />
+							<select onChange={props.handleSortChange} name="sortValue">
+								  <option value="default">default</option>
+								  <option value="name">name</option>
+								  <option value="weight">weight</option>
+								</select>
+					</div>
 		</div>
 	)
 }
